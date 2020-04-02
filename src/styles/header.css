@@ -1,7 +1,11 @@
 .header_container {
-    background: white;
-    height: 4rem;
+    height: 6rem;
     padding-right: 4rem;
+    padding-left: 4rem;
+}
+
+.header_button_container {
+    background: white;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -16,5 +20,4 @@
     margin-right: 1.5rem;
     padding-left: 1rem;
     padding-right: 1rem;
-
 }

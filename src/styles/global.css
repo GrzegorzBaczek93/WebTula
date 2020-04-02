@@ -1,6 +1,15 @@
+html,
+body {
+    height: 100%;
+}
+
 body {
     background: white;
     margin-top: 0;
     margin-right: auto;
     margin-left: auto;
+}
+
+.smth {
+    flex: 1;
 }
