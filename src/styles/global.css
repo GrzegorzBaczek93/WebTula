@@ -10,6 +10,10 @@ body {
     margin-left: auto;
 }
 
-.smth {
-    flex: 1;
+ul,
+li,
+ul,
+li,
+a {
+    text-decoration: none;
 }

@@ -3,6 +3,7 @@ import { Link } from 'gatsby';
 
 import '@styles/header.css';
 import Logo from '@components/header/Logo';
+import ButtonWrapper from '@components/common/ButtonWrapper';
 
 const Header = () => {
     return (
@@ -21,11 +22,9 @@ const Header = () => {
                 <Link className={`header_button`} to='/about'>
                     About
                 </Link>
-                <a
-                    className={`header_button`}
-                    href='https://www.etsy.com/shop/tulamakes'>
-                    Shop
-                </a>
+                <ButtonWrapper url={'https://www.etsy.com/shop/tulamakes'}>
+                    <span className={`header_button`}>Shop</span>
+                </ButtonWrapper>
             </div>
         </div>
     );
