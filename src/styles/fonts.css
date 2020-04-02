@@ -1,0 +1,7 @@
+@font-face {
+    font-family: AmericanTypeWriter;
+    font-weight: 400;
+    font-style: normal;
+    src: url("@fonts/AmericanTypewriterRegular.ttf") format("ttf");
+    font-display: swap;
+}

@@ -1,0 +1,7 @@
+.layout_container {
+    background: white;
+}
+
+.content_container {
+    min-height: calc(100vh - 8rem - 4px);
+}
