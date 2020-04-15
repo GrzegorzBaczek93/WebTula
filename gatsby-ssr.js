@@ -1,2 +1,1 @@
-import wrapWithProvider from "./wrap-with-provider"
-export const wrapRootElement = wrapWithProvider
+export { wrapRootElement } from '@data/wrap-root-element';
