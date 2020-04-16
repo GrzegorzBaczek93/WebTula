@@ -1,6 +1,6 @@
-.separator {
+.footer_separator {
     border: 0;
-    height: 4px;
+    height: 2px;
     background: burlywood;
     margin: 0;
     padding: 0;
@@ -14,4 +14,10 @@
     flex-direction: row;
     align-items: center;
     justify-content: flex-end;
+}
+
+.image_button {
+    height: 1.5rem;
+    width: auto;
+    margin-right: 1.5rem;
 }

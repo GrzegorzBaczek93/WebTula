@@ -1,7 +1,16 @@
 .layout_container {
     background: white;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
 }
 
 .content_container {
-    min-height: calc(100vh - 8rem - 4px);
+    flex: 1;
+    max-width: 1280px;
+    margin-right: 2rem;
+    margin-left: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
 }
