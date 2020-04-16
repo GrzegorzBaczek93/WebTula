@@ -1,5 +1,8 @@
 import React from 'react';
 
+const MIN_DESKTOP_WIDTH = 1000;
+const WINDOW_RESIZE_LISTENER_NAME = 'resize';
+
 const withSizeDetector = WrappedComponent => {
     return class extends React.Component {
         constructor(props) {
@@ -11,25 +14,34 @@ const withSizeDetector = WrappedComponent => {
         }
 
         componentDidMount() {
-            window.addEventListener('resize', this.handleWindowSizeChange);
+            window.addEventListener(
+                WINDOW_RESIZE_LISTENER_NAME,
+                this.handleWindowSizeChange
+            );
         }
 
         componentWillUnmount() {
-            window.removeEventListener('resize', this.handleWindowSizeChange);
+            window.removeEventListener(
+                WINDOW_RESIZE_LISTENER_NAME,
+                this.handleWindowSizeChange
+            );
         }
 
         getInitialState = () => {
-            return window.innerWidth < 1000 ? true : false;
+            return typeof window !== 'undefined' &&
+                window.innerWidth < MIN_DESKTOP_WIDTH
+                ? true
+                : false;
         };
 
         handleWindowSizeChange = () => {
             const { isMobile } = this.state;
 
-            if (window.innerWidth < 1000 && !isMobile) {
+            if (window.innerWidth < MIN_DESKTOP_WIDTH && !isMobile) {
                 this.setState({
                     isMobile: true,
                 });
-            } else if (window.innerWidth > 1000 && isMobile) {
+            } else if (window.innerWidth > MIN_DESKTOP_WIDTH && isMobile) {
                 this.setState({
                     isMobile: false,
                 });
