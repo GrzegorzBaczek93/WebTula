@@ -16,7 +16,7 @@ const Content = () => {
                 <>
                     <img
                         src={data.allAbout_pages.edges[0].node.about_image.url}
-                        alt='Tula Makes'
+                        alt={data.allAbout_pages.edges[0].node.about_image.alt}
                         className='about_image'
                     />
                     <span className='about_greeting'>
