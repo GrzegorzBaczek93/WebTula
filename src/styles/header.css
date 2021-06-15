@@ -2,7 +2,7 @@
     height: 6rem;
 }
 
-.header_button_container {
+.header_buttons_container {
     background: white;
     display: flex;
     flex-direction: row;
@@ -12,6 +12,11 @@
     padding-left: 4rem;
 }
 
+.tab_menu {
+    display: flex;
+    flex-direction: row;
+}
+
 .header_button {
     color: black;
     font-family: AmericanTypeWriter;
@@ -19,6 +24,16 @@
     margin-right: 1.5rem;
     padding-left: 1rem;
     padding-right: 1rem;
+}
+
+.header_button_selected {
+    color: black;
+    font-family: AmericanTypeWriter;
+    font-size: 24px;
+    margin-right: 1.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border-bottom: 2px solid burlywood;
 }
 
 .header_button:hover {

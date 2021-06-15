@@ -10,7 +10,7 @@ const Header = props => {
     const { isMobile } = props;
     return (
         <div className={`header_container`}>
-            <div className={`header_button_container`}>
+            <div className={`header_buttons_container`}>
                 <Logo />
                 {isMobile ? <BurgerMenu /> : <TabMenu />}
             </div>
