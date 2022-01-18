@@ -24,7 +24,7 @@ class Form extends React.Component {
 
     render() {
         return (
-            <form method="post" data-netlify="true" onSubmit={this.handleSubmit}>
+            <form method="POST" data-netlify="true" name="comissions" onSubmit={this.handleSubmit}>
                 <div className='form_column'>
                     <div className='form_row'>
                         <input
