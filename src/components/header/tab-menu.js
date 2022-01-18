@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'gatsby';
 
 import '@styles/header.css';
 import ButtonWrapper from '@components/common/button-wrapper';
