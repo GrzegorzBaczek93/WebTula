@@ -9,6 +9,7 @@ class Form extends React.Component {
         lastName: '',
         email: '',
         message: '',
+        protection: '',
     };
 
     handleChange = event => {
@@ -19,7 +20,8 @@ class Form extends React.Component {
 
     handleSubmit = event => {
         event.preventDefault();
-        console.log("Handle submit: " + this.state);
+        console.log("Submitting comission form")
+        console.log(this.state);
         fetch("/", {
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -33,7 +35,7 @@ class Form extends React.Component {
         return (
             <form name="comissions" method="POST" data-netlify="true" netlify-honeypot="protection" onSubmit={this.handleSubmit}>
                 <div className='hidden'>
-                    Just bot prevention <input name="protection" />
+                    Just bot prevention <input name="protection" onChange={this.handleChange}/>
                 </div>
                 <div className='form_column'>
                     <div className='form_row'>
