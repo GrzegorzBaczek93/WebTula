@@ -1,0 +1,32 @@
+.input_text {
+    margin: 10px;
+    padding: 10px;
+    border: 0;
+    outline: none;
+    border-bottom: 1px solid burlywood;
+    font-family: AmericanTypeWriter;
+}
+
+.textarea {
+    resize: vertical;
+    margin: 10px;
+    padding: 10px;
+    min-height: 100px;
+    border: 1px solid burlywood;
+    outline-color: burlywood;
+    font-family: AmericanTypeWriter;
+}
+
+.form_column {
+    display: flex;
+    flex-direction: column;
+}
+
+.form_row {
+    display: flex;
+    flex-direction: row;
+}
+
+.submit_button {
+    background-color: white;
+}

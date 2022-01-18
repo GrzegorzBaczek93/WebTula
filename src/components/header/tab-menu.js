@@ -1,24 +1,16 @@
 import React from 'react';
-import { Link } from 'gatsby';
 
 import '@styles/header.css';
 import ButtonWrapper from '@components/common/button-wrapper';
+import LinkButton from '@components/header/link-button';
 
 const TabMenu = () => {
     return (
-        <div>
-            <Link className={`header_button`} to='/'>
-                Home
-            </Link>
-            <Link className={`header_button`} to='/work'>
-                Work
-            </Link>
-            <Link className={`header_button`} to='/comissions'>
-                Comissions
-            </Link>
-            <Link className={`header_button`} to='/about'>
-                About
-            </Link>
+        <div className={`tab_menu`}>
+            <LinkButton text='Home' pathName='/' />
+            <LinkButton text='Work' pathName='/work' />
+            <LinkButton text='Comissions' pathName='/comissions' />
+            <LinkButton text='About' pathName='/about' />
             <ButtonWrapper url={'https://www.etsy.com/shop/tulamakes'}>
                 <span className={`header_button`}>Shop</span>
             </ButtonWrapper>
