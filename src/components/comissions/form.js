@@ -33,7 +33,7 @@ class Form extends React.Component {
 
     render() {
         return (
-            <form name="comissions" method="POST" data-netlify="true" data-netlify-honeypot="protection" onSubmit={this.handleSubmit}>
+            <form name="comissions" method="POST" data-netlify="true" netlify-honeypot="protection" onSubmit={this.handleSubmit}>
                 <div className='hidden'>
                     Just bot prevention <input name="protection" onChange={this.handleChange}/>
                 </div>
