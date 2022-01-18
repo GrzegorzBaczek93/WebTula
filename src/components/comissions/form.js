@@ -24,7 +24,10 @@ class Form extends React.Component {
 
     render() {
         return (
-            <form method="POST" data-netlify="true" data-netlify-recaptcha="true" name="comissions">
+            <form name="comissions" method="POST" data-netlify="true" data-netlify-recaptcha="true" netlify-honeypot="protection">
+                <div className='hidden'>
+                    Just bot prevention <input name="protection" />
+                </div>
                 <div className='form_column'>
                     <div className='form_row'>
                         <input
