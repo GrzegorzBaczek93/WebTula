@@ -9,7 +9,7 @@ class Form extends React.Component {
         lastName: '',
         email: '',
         message: '',
-        protection: '',
+        'bot-field': '',
     };
 
     handleChange = event => {
@@ -33,9 +33,9 @@ class Form extends React.Component {
 
     render() {
         return (
-            <form name="comissions" method="POST" data-netlify="true" data-netlify-honeypot="protection" onSubmit={this.handleSubmit}>
+            <form name="comissions" method="POST" data-netlify="true" netlify-honeypot="bot-field" onSubmit={this.handleSubmit}>
                 <div className='hidden'>
-                    Just bot prevention <input name="protection" onChange={this.handleChange}/>
+                    Just bot prevention <input name="bot-field" onChange={this.handleChange}/>
                 </div>
                 <div className='form_column'>
                     <div className='form_row'>
