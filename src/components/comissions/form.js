@@ -19,12 +19,19 @@ class Form extends React.Component {
 
     handleSubmit = event => {
         event.preventDefault();
-        console.log(JSON.stringify(event));
+        console.log("Handle submit: " + this.state);
+        fetch("/", {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: new URLSearchParams(this.state).toString(),
+        })
+        .then(() => console.log("Successfully submitted form"))
+        .catch((error) => console.log("Error submitting form" + error))
     };
 
     render() {
         return (
-            <form name="comissions" method="POST" data-netlify="true" data-netlify-recaptcha="true" netlify-honeypot="protection">
+            <form name="comissions" method="POST" data-netlify="true" netlify-honeypot="protection" onSubmit={this.handleSubmit}>
                 <div className='hidden'>
                     Just bot prevention <input name="protection" />
                 </div>
