@@ -19,12 +19,12 @@ class Form extends React.Component {
 
     handleSubmit = event => {
         event.preventDefault();
-        alert(`Hello: ${this.state.name}`);
+        console.log(JSON.stringify(event));
     };
 
     render() {
         return (
-            <form method="POST" data-netlify="true" name="comissions" onSubmit={this.handleSubmit}>
+            <form method="POST" data-netlify="true" data-netlify-recaptcha="true" name="comissions">
                 <div className='form_column'>
                     <div className='form_row'>
                         <input
