@@ -25,7 +25,7 @@ class Form extends React.Component {
         fetch("/", {
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: new URLSearchParams(this.state).toString(),
+            body: encodeURI({ "form-name": "comissions", ...this.state })
         })
         .then(() => console.log("Successfully submitted form"))
         .catch((error) => console.log("Error submitting form" + error))
