@@ -21,7 +21,7 @@ class Form extends React.Component {
         return Object.keys(data)
           .map(
             (key) =>
-              encodeURIComponent(key) + "=" + encodeURIComponent(data[key]).toString()
+              encodeURIComponent(key) + "=" + encodeURIComponent(data[key])
           )
           .join("&");
       }
@@ -34,7 +34,6 @@ class Form extends React.Component {
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
             body: this.encode({
                 "form-name": event.target.getAttribute("name"),
-                "bot-field": event.target.getAttribute("bot-field"),
                 ...this.state,
               })
         })
