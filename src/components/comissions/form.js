@@ -21,7 +21,7 @@ class Form extends React.Component {
         return Object.keys(data)
           .map(
             (key) =>
-              encodeURIComponent(key) + "=" + encodeURIComponent(data[key])
+              encodeURIComponent(key) + "=" + encodeURIComponent(data[key]).toString()
           )
           .join("&");
       }
