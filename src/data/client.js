@@ -6,9 +6,8 @@ import fetch from 'isomorphic-fetch';
 
 export const client = new ApolloClient({
     link: PrismicLink({
-        uri: 'https://webtula.prismic.io/graphql',
-        accessToken:
-            'MC5YbzF4cmhBQUFMbFR3S2pt.bO-_ve-_ve-_ve-_ve-_vSsk77-977-977-977-9Bnzvv70O77-977-9V--_vRgOfUwcNXob77-9ZO-_ve-_vQ',
+        uri: process.env.GATSBY_PRISMIC_URI,
+        accessToken: process.env.GATSBY_PRISMIC_API_KEY,
     }),
     cache: new InMemoryCache(),
     fetch,
