@@ -52,7 +52,7 @@ class Form extends React.Component {
                 name="comissions"
                 method="POST"
                 data-netlify="true"
-                data-netlify-recaptcha="true"
+                // data-netlify-recaptcha="true"
                 data-netlify-honeypot="bot-field"
                 action="/"
             >
@@ -96,7 +96,7 @@ class Form extends React.Component {
                         onChange={this.handleChange}
                     />
                 </div>
-                <div data-netlify-recaptcha="true"></div>
+                {/* <div data-netlify-recaptcha="true"></div> */}
                 <button type='submit' className='submit_button'>
                     Submit
                 </button>
