@@ -32,9 +32,16 @@ class Form extends React.Component {
 
     render() {
         return (
-            <form name="comissions" method="POST" data-netlify="true" netlify-honeypot="bot-field" onSubmit="submit">
-                <input hidden name="form-name" value="comissions"/>
-                <div hidden><input name="bot-field"/></div>
+            <form
+                name="comissions"
+                method="POST"
+                data-netlify="true"
+                data-netlify-recaptcha="true"
+                netlify-honeypot="bot-field"
+                onSubmit="submit"
+            >
+                <input hidden name="form-name" value="comissions" />
+                <div hidden><input name="bot-field" /></div>
                 <div className='form_column'>
                     <div className='form_row'>
                         <input
