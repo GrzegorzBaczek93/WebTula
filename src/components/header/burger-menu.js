@@ -3,6 +3,8 @@ import { slide as Menu } from 'react-burger-menu';
 import { Link } from 'gatsby';
 
 import '@styles/burger-menu.css';
+import BurgerIcon from '@assets/burger_menu_icon.png';
+import BurgerIconLight from '@assets/burger_menu_icon_light.png';
 import ButtonWrapper from '@components/common/button-wrapper';
 import HoverImageButton from '@components/common/hover-image-button';
 
@@ -32,8 +34,8 @@ class BurgerMenu extends React.Component {
                 <HoverImageButton
                     alt='Burger Menu'
                     className='bm-menu-icon'
-                    unhoverSrc='burger_menu_icon.png'
-                    hoverSrc='burger_menu_icon_light.png'
+                    unhoverSrc={BurgerIcon}
+                    hoverSrc={BurgerIconLight}
                     onClick={this.toggleMenu}
                 />
                 <Menu
