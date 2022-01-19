@@ -2,6 +2,7 @@ import React from 'react';
 import TextareaAutosize from 'react-textarea-autosize';
 
 import '@styles/form.css';
+import { encodeRequestBody } from '@utils/formatting-util';
 
 class Form extends React.Component {
     state = {
@@ -9,6 +10,7 @@ class Form extends React.Component {
         lastName: '',
         email: '',
         message: '',
+        "bot-field": '',
     };
 
     handleChange = event => {
@@ -17,30 +19,18 @@ class Form extends React.Component {
         });
     };
 
-    encode = data => {
-        return Object.keys(data)
-          .map(
-            (key) =>
-              encodeURIComponent(key) + "=" + encodeURIComponent(data[key])
-          )
-          .join("&");
-      }
-      
-
     handleSubmit = event => {
         event.preventDefault();
-        console.log("Submitting comission form")
-        console.log(this.state);
         fetch("/", {
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: this.encode({
+            body: encodeRequestBody({
                 "form-name": event.target.getAttribute("name"),
                 ...this.state,
-              })
+            })
         })
-        .then(() => console.log("Successfully submitted form"))
-        .catch((error) => console.log("Error submitting form" + error))
+            .then(() => console.log("Successfully submitted form"))
+            .catch((error) => console.log("Error submitting form" + error))
     };
 
     render() {
@@ -49,12 +39,13 @@ class Form extends React.Component {
                 name="comissions"
                 method="POST"
                 data-netlify="true"
-                data-netlify-recaptcha="true"
+                // data-netlify-recaptcha="true"
                 netlify-honeypot="bot-field"
+                action="/"
                 onSubmit={this.handleSubmit}
             >
-                <input hidden name="form-name" value="comissions" />
-                <div hidden><input name="bot-field" /></div>
+                <input hidden name="form-name" value="comissions" readOnly/>
+                <div hidden><input name="bot-field" onChange={this.handleChange}/></div>
                 <div className='form_column'>
                     <div className='form_row'>
                         <input
@@ -93,7 +84,7 @@ class Form extends React.Component {
                         onChange={this.handleChange}
                     />
                 </div>
-                <div data-netlify-recaptcha="true"></div>
+                {/* <div data-netlify-recaptcha="true"></div> */}
                 <button type='submit' className='submit_button'>
                     Submit
                 </button>

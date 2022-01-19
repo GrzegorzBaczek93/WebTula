@@ -37,6 +37,8 @@ module.exports = {
                     '@fonts': 'src/fonts',
                     '@data': 'src/data',
                     '@hoc': 'src/hoc',
+                    '@utils': 'src/utils',
+                    '@assets': 'assets'
                 },
                 extensions: ['js', 'css'],
             },
