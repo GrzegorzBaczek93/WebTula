@@ -38,6 +38,7 @@ module.exports = {
                     '@data': 'src/data',
                     '@hoc': 'src/hoc',
                     '@utils': 'src/utils',
+                    '@assets': 'assets'
                 },
                 extensions: ['js', 'css'],
             },
