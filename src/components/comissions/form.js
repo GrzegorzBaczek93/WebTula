@@ -2,6 +2,7 @@ import React from 'react';
 import TextareaAutosize from 'react-textarea-autosize';
 
 import '@styles/form.css';
+import { encodeRequestBody } from '@utils/formatting-util';
 
 class Form extends React.Component {
     state = {
@@ -18,26 +19,12 @@ class Form extends React.Component {
         });
     };
 
-    encode = data => {
-        return Object.keys(data)
-            .filter((key) => {
-                if (key === null || data[key] === null) {
-                    return false;
-                } else {
-                    return true;
-                }
-            })
-            .map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-            .join("&");
-    }
-
-
     handleSubmit = event => {
         event.preventDefault();
         fetch("/", {
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: this.encode({
+            body: encodeRequestBody({
                 "form-name": event.target.getAttribute("name"),
                 ...this.state,
             })
