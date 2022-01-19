@@ -53,7 +53,7 @@ class Form extends React.Component {
                 method="POST"
                 data-netlify="true"
                 // data-netlify-recaptcha="true"
-                data-netlify-honeypot="bot-field"
+                netlify-honeypot="bot-field"
                 action="/"
             >
                 <input hidden name="form-name" value="comissions" />
