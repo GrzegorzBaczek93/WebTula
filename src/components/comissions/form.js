@@ -9,7 +9,6 @@ class Form extends React.Component {
         lastName: '',
         email: '',
         message: '',
-        'bot-field': '',
     };
 
     handleChange = event => {
@@ -18,25 +17,23 @@ class Form extends React.Component {
         });
     };
 
-    handleSubmit = event => {
-        event.preventDefault();
-        console.log("Submitting comission form")
-        console.log(this.state);
-        fetch("/", {
-            method: "POST",
-            headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: { "form-name": "comissions", ...this.state },
-        })
-        .then(() => console.log("Successfully submitted form"))
-        .catch((error) => console.log("Error submitting form" + error))
-    };
+    // handleSubmit = event => {
+    //     event.preventDefault();
+    //     console.log("Submitting comission form")
+    //     console.log(this.state);
+    //     fetch("/", {
+    //         method: "POST",
+    //         headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    //         body: { "form-name": "comissions", ...this.state },
+    //     })
+    //     .then(() => console.log("Successfully submitted form"))
+    //     .catch((error) => console.log("Error submitting form" + error))
+    // };
 
     render() {
         return (
-            <form name="comissions" method="POST" data-netlify="true" netlify-honeypot="bot-field" onSubmit={this.handleSubmit}>
-                <div className='hidden'>
-                    Just bot prevention <input name="bot-field" onChange={this.handleChange}/>
-                </div>
+            <form name="comissions" method="POST" data-netlify="true" netlify-honeypot="bot-field" onSubmit="submit">
+                <div hidden><input name="bot-field"/></div>
                 <div className='form_column'>
                     <div className='form_row'>
                         <input
