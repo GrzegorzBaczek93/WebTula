@@ -25,7 +25,7 @@ class Form extends React.Component {
         fetch("/", {
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: new URLSearchParams(this.state).toString(),
+            body: { "form-name": "comissions", ...this.state },
         })
         .then(() => console.log("Successfully submitted form"))
         .catch((error) => console.log("Error submitting form" + error))
@@ -75,6 +75,7 @@ class Form extends React.Component {
                         onChange={this.handleChange}
                     />
                 </div>
+                <div data-netlify-recaptcha="true"/>
                 <button type='submit' className='submit_button'>
                     Submit
                 </button>
