@@ -31,11 +31,14 @@ class Form extends React.Component {
         event.preventDefault();
         console.log("Submitting comission form")
         console.log(this.state);
+        console.log(event.target)
+        const data =
         fetch("/", {
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
             body: this.encode({
                 "form-name": event.target.getAttribute("name"),
+                "bot-field": event.target.getAttribute("bot-field"),
                 ...this.state,
               })
         })
@@ -54,7 +57,7 @@ class Form extends React.Component {
                 onSubmit={this.handleSubmit}
             >
                 <input hidden name="form-name" value="comissions" />
-                <div hidden><input name="bot-field" /></div>
+                <div hidden><input name="bot-field" value=""/></div>
                 <div className='form_column'>
                     <div className='form_row'>
                         <input
