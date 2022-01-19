@@ -9,6 +9,7 @@ class Form extends React.Component {
         lastName: '',
         email: '',
         message: '',
+        "bot-field": '',
     };
 
     handleChange = event => {
@@ -19,13 +20,17 @@ class Form extends React.Component {
 
     encode = data => {
         return Object.keys(data)
-          .map(
-            (key) =>
-              encodeURIComponent(key) + "=" + encodeURIComponent(data[key])
-          )
-          .join("&");
-      }
-      
+            .filter((key) => {
+                if (key === null || data[key] === null) {
+                    return false;
+                } else {
+                    return true;
+                }
+            })
+            .map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+            .join("&");
+    }
+
 
     handleSubmit = event => {
         event.preventDefault();
@@ -35,10 +40,10 @@ class Form extends React.Component {
             body: this.encode({
                 "form-name": event.target.getAttribute("name"),
                 ...this.state,
-              })
+            })
         })
-        .then(() => console.log("Successfully submitted form"))
-        .catch((error) => console.log("Error submitting form" + error))
+            .then(() => console.log("Successfully submitted form"))
+            .catch((error) => console.log("Error submitting form" + error))
     };
 
     render() {
@@ -52,8 +57,8 @@ class Form extends React.Component {
                 action="/"
                 onSubmit={this.handleSubmit}
             >
-                <input hidden name="form-name" value="comissions" />
-                <div hidden><input name="bot-field" value=""/></div>
+                <input hidden name="form-name" value="comissions" readOnly/>
+                <div hidden><input name="bot-field" onChange={this.handleChange}/></div>
                 <div className='form_column'>
                     <div className='form_row'>
                         <input
