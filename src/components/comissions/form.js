@@ -29,10 +29,6 @@ class Form extends React.Component {
 
     handleSubmit = event => {
         event.preventDefault();
-        console.log("Submitting comission form")
-        console.log(this.state);
-        console.log(event.target)
-        const data =
         fetch("/", {
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -55,6 +51,7 @@ class Form extends React.Component {
                 // data-netlify-recaptcha="true"
                 netlify-honeypot="bot-field"
                 action="/"
+                onSubmit={this.handleSubmit}
             >
                 <input hidden name="form-name" value="comissions" />
                 <div hidden><input name="bot-field" value=""/></div>
