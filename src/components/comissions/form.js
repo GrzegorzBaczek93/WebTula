@@ -17,18 +17,31 @@ class Form extends React.Component {
         });
     };
 
-    // handleSubmit = event => {
-    //     event.preventDefault();
-    //     console.log("Submitting comission form")
-    //     console.log(this.state);
-    //     fetch("/", {
-    //         method: "POST",
-    //         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    //         body: { "form-name": "comissions", ...this.state },
-    //     })
-    //     .then(() => console.log("Successfully submitted form"))
-    //     .catch((error) => console.log("Error submitting form" + error))
-    // };
+    encode = data => {
+        return Object.keys(data)
+          .map(
+            (key) =>
+              encodeURIComponent(key) + "=" + encodeURIComponent(data[key])
+          )
+          .join("&");
+      }
+      
+
+    handleSubmit = event => {
+        event.preventDefault();
+        console.log("Submitting comission form")
+        console.log(this.state);
+        fetch("/", {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: this.encode({
+                "form-name": event.target.getAttribute("name"),
+                ...this.state,
+              })
+        })
+        .then(() => console.log("Successfully submitted form"))
+        .catch((error) => console.log("Error submitting form" + error))
+    };
 
     render() {
         return (
@@ -38,7 +51,7 @@ class Form extends React.Component {
                 data-netlify="true"
                 data-netlify-recaptcha="true"
                 netlify-honeypot="bot-field"
-                onSubmit="submit"
+                onSubmit={this.handleSubmit}
             >
                 <input hidden name="form-name" value="comissions" />
                 <div hidden><input name="bot-field" /></div>
