@@ -1,13 +1,21 @@
 import React from 'react';
+import { useQuery } from '@apollo/react-hooks';
 import { Link } from 'gatsby';
 
 import '@styles/header-logo.css';
-import TulamakesLogo from '@assets/tulamakes_logo.png';
+import { StaticElementsQuery } from '@data/query/static-elements-query';
 
 const Logo = () => {
+    const { data, error } = useQuery(StaticElementsQuery)
+
     return (
         <Link to='/'>
-            <img src={TulamakesLogo} alt={'Logo'} className={'logo'} />
+            {data && (
+                <img
+                    src={data.allStatic_elementss.edges[0].node.brand_logo.url}
+                    alt={data.allStatic_elementss.edges[0].node.brand_logo.alt}
+                    className={'logo'} />
+            )}
         </Link>
     );
 };
