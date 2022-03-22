@@ -2,6 +2,7 @@ import React from 'react';
 import TextareaAutosize from 'react-textarea-autosize';
 
 import '@styles/form.css';
+import "@styles/buttons.css";
 import { encodeRequestBody } from '@utils/formatting-util';
 
 class Form extends React.Component {
@@ -83,11 +84,13 @@ class Form extends React.Component {
                         value={this.state.message}
                         onChange={this.handleChange}
                     />
+                    <div className='form_column_button'>
+                        <div data-netlify-recaptcha="true"></div>
+                        <button type='submit' className='primary_button'>
+                            Submit
+                        </button>
+                    </div>
                 </div>
-                {/* <div data-netlify-recaptcha="true"></div> */}
-                <button type='submit' className='submit_button'>
-                    Submit
-                </button>
             </form>
         );
     }
